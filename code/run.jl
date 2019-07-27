@@ -1,4 +1,6 @@
 using MacroTools, StaticArrays, LinearAlgebra
+using Images, ColorVectorSpace, Colors
+using Dates
 
 const vec3 = SVector{3,Float64}
 const vec4 = SVector{4,Float64}
@@ -122,28 +124,21 @@ end
 
 include("../config/Rendering.jl")
 include("../config/Camera.jl")
+include("../config/Scene.jl")
+include("../config/Picture.jl")
 
-l = funcu(z,:space)
-for i=1:x
+
+@time for i=1:x ## loop able to produce more than 1 gigapixel per hour per core on my laptop if fed correctly
     for j=1:y
         a = los(isocam,i,j)
-        frame[i][j] = raymarch(a[1],a[2],l,1000.0)
-        if frame[i][j].Shadr == 0
-            myPic[i][j] = RGB(0.25,0.25,0.25)
-        else
-            myPic[i][j] = RGB(0.65,0.65,0.65)
-        end
+        frame[i,j] = raymarch(a[1],a[2],scene,1000.0) ## upto 3x over head due to excessive copying
+        ## Stencils on this ^ would be fun :)
+
+        myPic[i,j] = ShaderArray[frame[i,j].Shader](frame[i,j]) ##TODO:reflections have no place in this model
+        ## some improvement possible with the shader
     end
 end
-
-
-eval(Expr(:(=),:pie, Expr(:call,:sin,8)))
-println(pie) ##works
-
-y = to_code(Plane(vec3(1.0,0.0,0.0),1))
-println(execu(y,vec3(2.0,1.0,2.3)),"plain") ## works
-
-
-z = to_code(SUnion((RepQ(Trans(Sphere(0.5,1),vec3(1.0,0.0,0.0)),4.0),Trans(Sphere(0.5,2),vec3(0.0,-1.0,0.0)))))
-
-println(execu(z,vec3(-2.0,-1.0,0.3)),"trans")
+using ImageView
+imshow(myPic)
+stamp = Dates.format(Dates.DateTime(Dates.now()), "dd-u-yyyy-HH:MM:SS")
+save(pwd()*"/results/myPic-"*stamp*".png",map(clamp01nan,myPic))
