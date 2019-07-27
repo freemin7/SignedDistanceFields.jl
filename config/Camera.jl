@@ -16,7 +16,7 @@ end
 
 x, y = (1080,1920)
 #Höhe Breite
-isocam = IsometricCamera(space(10.0,0.0,0.0),
+isocam = IsometricCamera(space(25.0,0.0,0.0),
                          space(-1.0,0,0),
                          x/600*35*normalize(space(0.0,1.0,0.0)),
                          y/600*35*normalize(space(0.0,0.0,1.0)),x,y)

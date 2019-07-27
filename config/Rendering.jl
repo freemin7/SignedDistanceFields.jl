@@ -28,7 +28,7 @@ function raymarch(Pos::space,Normal::space,SF,renderlim::Float64)
         Pos+=Normal*Step;
         Strecke+=Step
         if Strecke > renderlim
-            return RayResults(Pos,Normal,zero(space),Shd_Id(0),Step,Pos,Strecke,renderlim,zero(RGB))
+            return RayResults(Pos,Normal,zero(space),Shd_Id(1),Step,Pos,Strecke,renderlim,zero(RGB))
         end
     end
     RayResults(Pos,Normal,
