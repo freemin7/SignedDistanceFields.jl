@@ -27,7 +27,7 @@ Should get you all dependencies
 
 ## Running the tests
 
-We have to tests
+We have no tests yet.
 
 
 ## Deployment
