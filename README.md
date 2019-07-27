@@ -37,7 +37,7 @@ You influence the output by rewriting the files inside ```config```
 ## Built With
 
 * [Julia](https://julialang.org/) - tested on 1.0.4
-* [stubGPUentry]() - GPU depedencies would go here, right now it runs on the GPU
+* [stubGPUentry]() - GPU depedencies would go here, right now it runs on the CPU
 
 ## Contributing
 
