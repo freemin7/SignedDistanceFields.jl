@@ -1,10 +1,10 @@
 using MacroTools, StaticArrays, LinearAlgebra
 
-vec3 = SVector{3,Float64}
-vec4 = SVector{4,Float64}
+const vec3 = SVector{3,Float64}
+const vec4 = SVector{4,Float64}
 
-space = vec3
-Shd_Id = Int16
+const space = vec3
+const Shd_Id = UInt16
 
 abstract type SDF end
 
@@ -18,7 +18,7 @@ struct Plane <: SDF
     ShaderID::Shd_Id
 end # struct
 
-struct repq{T <: SDF} <: SDF
+struct RepQ{T <: SDF} <: SDF
     Victim::T
     resid::Float64
 end
@@ -66,11 +66,14 @@ function to_code(Sdf::Trans)
     SF
 end
 
-function to_code(Sdf::repq)
+function to_code(Sdf::RepQ)
     SF = to_code(Sdf.Victim)
-    temp = gensym()
-    prepend!(SF.Core,[Expr(:(=),SF.Param,Expr(:call,:(-),temp,Sdf.Vec))])
-    SF.Param=temp
+    entry = gensym()
+    mapped = gensym()
+    prepend!(SF.Core,[Expr(:(=),SF.Param,Expr(:call,:broadcast,
+        Expr(:->,mapped,Expr(:block,
+            Expr(:call,:mod,mapped,Sdf.resid))),entry))])
+    SF.Param=entry
     SF
 end
 
@@ -116,6 +119,24 @@ function funcu(SingFunc,Type)
          Expr(:block,SingFunc.Core...)))
 end
 
+
+include("../config/Rendering.jl")
+include("../config/Camera.jl")
+
+l = funcu(z,:space)
+for i=1:x
+    for j=1:y
+        a = los(isocam,i,j)
+        frame[i][j] = raymarch(a[1],a[2],l,1000.0)
+        if frame[i][j].Shadr == 0
+            myPic[i][j] = RGB(0.25,0.25,0.25)
+        else
+            myPic[i][j] = RGB(0.65,0.65,0.65)
+        end
+    end
+end
+
+
 eval(Expr(:(=),:pie, Expr(:call,:sin,8)))
 println(pie) ##works
 
@@ -123,5 +144,6 @@ y = to_code(Plane(vec3(1.0,0.0,0.0),1))
 println(execu(y,vec3(2.0,1.0,2.3)),"plain") ## works
 
 
-z = to_code(SUnion((Trans(Sphere(0.5,1),vec3(1.0,0.0,0.0)),Trans(Sphere(0.5,2),vec3(0.0,-1.0,0.0)))))
+z = to_code(SUnion((RepQ(Trans(Sphere(0.5,1),vec3(1.0,0.0,0.0)),4.0),Trans(Sphere(0.5,2),vec3(0.0,-1.0,0.0)))))
+
 println(execu(z,vec3(-2.0,-1.0,0.3)),"trans")
