@@ -49,18 +49,18 @@ We use no for versioning scheme yet.
 
 ## Authors
 
-* **Johann-Tobias Schäg** - *Initial work* - [freemin7](https://github.com/freemin7)
+* **Johann-Tobias Schäg** - *Initial work* - [Github: freemin7](https://github.com/freemin7)
 
 See also the list of [contributors](https://github.com/freemin7/SignedDistanceFields.jl/graphs/contributors) who participated in this project.
 
 ## License
 
-This project is licensed under the Zero-Clause BSD License - see the [LICENSE.md](LICENSE.md) file for details. If you hate this license open a issues
+This project is licensed under the Zero-Clause BSD License - see the [LICENSE.md](LICENSE.md) file for details. If you hate this license open an issue.
 
 ## Acknowledgments
 
 * Mason Protter for helping me with a few Julia snippets the night i wrote it
-* Inigo Quilez [and his website with the first inspirational articles](https://iquilezles.org/index.html)
-* Nicolau Leal Werneck for linking it and pushing me to spend the hours
+* Inigo Quilez [and his website with a few inspirational articles](https://iquilezles.org/index.html)
+* Nicolau Leal Werneck for liking it which pushed me to spend the hours
 
 
