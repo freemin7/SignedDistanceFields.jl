@@ -2,6 +2,7 @@ name = "SignedDistanceFields.jl"
 uuid = "d3496432-b0bf-11e9-2fac-939fc1e34577"
 authors = ["Johann-Tobias Schäg"]
 version = "0.1.0"
+repo-url = "https://github.com/freemin7/SignedDistanceFields.jl.git"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
