@@ -1,6 +1,8 @@
-authors = ["joto "]
-name = "SignedDistanceFields"
-uuid = "f332bf3e-b0ae-11e9-2361-9960762516f1"
+name = "SignedDistanceFields.jl"
+uuid = "d3496432-b0bf-11e9-2fac-939fc1e34577"
+authors = ["Johann-Tobias Schäg"]
 version = "0.1.0"
 
 [deps]
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
