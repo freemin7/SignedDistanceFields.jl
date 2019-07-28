@@ -16,10 +16,11 @@ end
 
 x, y = (1080,1920)
 #Höhe Breite
+#Heigth Width
 isocam = IsometricCamera(space(25.0,0.0,0.0),
                          space(-1.0,0,0),
                          x/600*35*normalize(space(0.0,1.0,0.0)),
-                         y/600*35*normalize(space(0.0,0.0,1.0)),x,y)
+                         y/600*35*normalize(space(0.0,0.0,1.0)),x,y);
 
-frame = Array{RayResults}(undef,x,y)
+frame = Array{RayResults}(undef,x,y);
 myPic = Array{RGB}(undef,x,y);

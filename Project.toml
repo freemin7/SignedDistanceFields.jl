@@ -1,4 +1,4 @@
-name = "SignedDistanceFields.jl"
+name = "SignedDistanceFields"
 uuid = "d3496432-b0bf-11e9-2fac-939fc1e34577"
 authors = ["Johann-Tobias Schäg"]
 version = "0.1.0"
