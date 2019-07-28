@@ -5,4 +5,4 @@ z = to_code(SUnion((Trans(Sphere(5*sqrt(2),4),space(0.0,-10.0,0.0)),
     RepQ(Trans(Sphere(0.5,1),space(2.5,2.5,2.5)),5.0),
     Trans(Sphere(10.5,3),space(0.0,0.0,0.0)))))
 
-scene = funcu(z,:space)
+scene = func(z,:space)
