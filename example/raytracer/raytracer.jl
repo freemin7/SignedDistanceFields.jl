@@ -1,7 +1,7 @@
 using LinearAlgebra, ImageView, Images, ColorVectorSpace, Colors, Dates, SignedDistanceFields
 
 include("raymarching.jl")
-include("camera.jl")
+include("camera.jl");
 include("scene.jl")
 include("shaders.jl")
 include("render.jl")

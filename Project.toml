@@ -1,7 +1,7 @@
 name = "SignedDistanceFields"
 uuid = "d3496432-b0bf-11e9-2fac-939fc1e34577"
 authors = ["Johann-Tobias Schäg"]
-version = "0.1.0"
+version = "0.1.1"
 repo-url = "https://github.com/freemin7/SignedDistanceFields.jl.git"
 
 [deps]

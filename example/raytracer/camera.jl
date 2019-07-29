@@ -14,6 +14,9 @@ function los(Cam::IsometricCamera,X::Int64,Y::Int64)::Tuple{space,space}
   ((X-Cam.Maxx)*Cam.Sensorx+(Y-Cam.Maxy)*Cam.Sensory+Cam.Position,Cam.Direction)
 end
 
+## TODO: Add pinhole Camera
+## http://ksimek.github.io/2013/08/13/intrinsic/
+
 x, y = (1080,1920)
 #Höhe Breite
 #Heigth Width

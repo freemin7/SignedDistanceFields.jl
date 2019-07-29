@@ -3,7 +3,7 @@ module SignedDistanceFields
 using LinearAlgebra
 using StaticArrays
 
-export space, Shd_Id, SDF, Sphere, Plane, RepQ, Trans, SUnion, SCut, to_code, exec, func
+export space, Shd_Id, SDF, Sphere, Ball, Plane, RepQ, Trans, SUnion, SCut, to_code, exec, func, @func
 
 const vec3 = SVector{3,Float64}
 const space = vec3
