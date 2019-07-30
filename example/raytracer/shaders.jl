@@ -8,4 +8,3 @@ ShaderArray = [
         (x⃗::RayResults)->RGB(0.35,0.35,0.55)]
 ## Max length of array is 2^16
 ## A sharder is (currenty) (subject to change due to unhandled reflections) a function that takes a RayResults struct and returns a RGB value
-

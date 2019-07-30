@@ -1,3 +1,5 @@
+##TODO: Add softmax
+
 struct RepQ{T <: SDF} <: SDF
     Victim::T
     resid::Float64

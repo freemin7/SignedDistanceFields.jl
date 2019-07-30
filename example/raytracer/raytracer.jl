@@ -4,7 +4,7 @@ include("raymarching.jl")
 include("camera.jl");
 include("scene.jl")
 include("shaders.jl")
-include("render.jl")
+@time include("render.jl")
 
 imshow(myPic)
 
