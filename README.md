@@ -5,7 +5,7 @@ In the future running these functions on the GPU or implementing scene graph spe
 
 A simple raymarching engine with a scene and some simple shaders are provided in the example folder. 
 
-![Written in Julia](https://raw.githubusercontent.com/freemin7/SignedDistanceFields.jl/master/example/raytracer/myPic-27-Jul-2019-14%3A15%3A35.png)
+![Written in Julia](https://github.com/freemin7/SignedDistanceFields.jl/raw/master/example/raytracer/myPic-3.png)
 
 
 ## Getting Started
